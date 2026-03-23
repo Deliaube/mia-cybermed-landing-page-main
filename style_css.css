@@ -1,0 +1,323 @@
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=VT323&display=swap');
+
+        :root {
+            --blood: #95283D;
+            --ghost: #FBE5E4;
+            --petal: #f6a8c1;
+            --lcd-green: #a8ffb0;
+            --lcd-bg: #1a241b;
+            --t-pink: #f8c7cc;
+            --t-teal: #087e8b;
+            --t-mint: #daffef;
+            --t-purple: #8b687f;
+            --t-deep: #7b435b;
+        }
+  
+  /* --- 1. SFONDO GENERALE --- */
+        body {
+            background-color: var(--ghost); 
+            background-image: radial-gradient(var(--petal) 2px, transparent 2px);
+            background-size: 40px 40px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 100px 20px; /* Spazio per non tagliare l'immagine */
+            position: relative;
+            overflow-x: hidden;
+            z-index: 1;
+        }
+
+        /* --- 2. SLOT IMMAGINE BACKGROUND (IL FIX) --- 
+           Questa immagine ora sta DIETRO il container ma SOPRA lo sfondo rosa.
+        */
+        .header-bg-image {
+            position: absolute;
+            top: 0; /* Regola questa altezza per farla apparire dietro l'header */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%; /* Occupa quasi tutta la larghezza */
+            max-width: 100%;
+            z-index: 2; /* Più alto del body (1), più basso del container (10) */
+            text-align: center;
+            pointer-events: none; /* Non blocca i click sui pulsanti */
+        }
+
+        .header-bg-image img {
+            width: 100%;
+            height: auto;
+            opacity: 0.9; /* Trasparenza per fonderla con i coriandoli */
+        }
+
+        /* --- 3. STICKERS (SOPRA TUTTO) --- */
+        .sticker {
+            position: absolute;
+            padding: 8px 15px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border: 2px solid var(--blood);
+            background: #fff;
+            border-radius: 50px;
+            transform: rotate(var(--r));
+            z-index: 30; /* Il livello più alto in assoluto */
+            box-shadow: 3px 3px 0 var(--petal);
+        }
+
+        /* --- 4. IL CONTENITORE PRINCIPALE --- */
+        .container {
+            max-width: 520px;
+            width: 100%;
+            border: 10px solid var(--petal);
+            border-radius: 60px;
+            overflow: hidden;
+            position: relative;
+            z-index: 10; /* Sopra l'immagine, sotto gli sticker */
+            box-shadow: 0 30px 60px rgba(149, 40, 61, 0.2);
+        }
+
+
+        /* --- 5. SEZIONI INTERNE --- */
+        .header-kawaii {
+            padding: 60px 20px;
+            text-align: center;
+            /* 1. Sfondo semitrasparente (colore carta sporca) */
+    
+    /* 2. L'effetto sfocatura (il vero "Glass") */
+    backdrop-filter: blur(12px) saturate(80%);
+    -webkit-backdrop-filter: blur(12px) saturate(80%);
+    /* 5. Texture di disturbo (opzionale ma consigliata) */
+    background-blend-mode: overlay;
+        }
+
+ .header-kawaii {
+    position: relative; /* Necessario per posizionare il bordo */
+    padding-bottom: 30px; 
+}
+
+.header-kawaii::after {
+    content: "🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 "; /* Inserisci qui i tuoi fiori */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 10px; /* Regola lo spazio tra i fiori */
+    opacity: 0.8;
+}
+
+        .section-transmigrator {
+            padding: 80px 40px;
+            min-height: 300px; /* ALTEZZA RICHIESTA */
+            display: flex;
+            flex-direction: column;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            background: linear-gradient(360deg, rgb(248, 199, 204), rgb(237, 221, 83) 36%, rgb(248, 199, 204), rgba(237, 221, 83, 0) 100%);
+
+
+            /* 1. Sfondo semitrasparente (colore carta sporca) */
+    
+    /* 2. L'effetto sfocatura (il vero "Glass") */
+    backdrop-filter: blur(12px) saturate(80%);
+    -webkit-backdrop-filter: blur(12px) saturate(80%);
+    
+    
+    /* 5. Texture di disturbo (opzionale ma consigliata) */
+    background-blend-mode: overlay;
+
+
+}
+
+        .medical-report {
+            background: var(--t-mint);
+            padding: 30px;
+            border-radius: 30px;
+            color: var(--t-deep);
+            border: 2px solid var(--t-purple);
+            box-shadow: 8px 8px 0 var(--t-purple);
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        /* --- 6. LCD INMATE BLOCK --- */
+        .lcd-block {
+            background-color: var(--lcd-bg);
+            padding: 40px;
+            color: var(--lcd-green);
+            font-family: 'VT323', monospace;
+            text-shadow: 0 0 8px var(--lcd-green);
+            background-color: black;
+        }
+
+        /* --- ANIMAZIONE CORIANDOLI (Z-INDEX 5) --- */
+        .heart {
+            position: fixed;
+            z-index: 5; /* Sopra l'immagine di background (2), sotto il container (10) */
+            pointer-events: none;
+        }
+
+
+        /* --- 7. SEZIONE SLOGAN & MARIONETTE --- */
+.slogan {
+    position: relative;
+    padding: 40px 20px;
+    background: #087E8B;;
+background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(87, 199, 133, 1) 49%, rgba(248, 199, 204, 1) 100%);
+    overflow: hidden;
+    min-height: 500px; /* Spazio per far pendere le marionette */
+  
+}
+
+.left-hand-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* AGGIUNGI QUESTA RIGA */
+    animation: float-system 4s ease-in-out infinite alternate;
+}
+
+@keyframes float-system {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(20px) rotate(1deg); /* Leggera inclinazione mentre scende */
+    }
+}
+
+.left-hand {
+    width: 100%; /* Regola in base alla tua immagine */
+    height: auto;
+    z-index: 20;
+    position: relative;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+}
+
+.marionette-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 10%;
+    margin-top: -50px; /* Fa sembrare che i fili escano dalla mano */
+    position: relative;
+    z-index: 15;
+}
+
+.puppet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: sway 3s ease-in-out infinite alternate;
+    animation-delay: var(--delay);
+
+    /* IMPOSTA IL PERNO IN ALTO AL CENTRO */
+    transform-origin: top center; 
+    
+    /* Animazione più fluida e naturale */
+    animation: sway-pendulum 3s ease-in-out infinite alternate;
+}
+
+.string {
+    width: 1px;
+    height: var(--string-h); /* Altezza personalizzata dall'HTML inline style */
+    background: linear-gradient(to bottom, #0b7c56, #63035e);
+    margin-bottom: -52px; /* Sovrappone leggermente il filo all'idolo */
+}
+
+.puppet img {
+    width: 80px; /* Dimensione degli idoli */
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(110, 230, 30, 0.5));
+}
+
+/* --- NUOVA ANIMAZIONE PENDOLO --- */
+@keyframes sway-pendulum {
+    0% { 
+        transform: rotate(-6deg); 
+    }
+    100% { 
+        transform: rotate(6deg); 
+    }
+}
+
+/* --- STILE DIAGNOSI (EX LCD BLOCK) --- */
+.lcd-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.qr-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border: 2px solid var(--lcd-green);
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(168, 255, 176, 0.3);
+}
+
+.qr-placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* --- ANIMAZIONE LINEA SCANNER --- */
+.scan-line {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--lcd-green);
+    box-shadow: 0 0 10px var(--lcd-green);
+    z-index: 2;
+    top: 0;
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
+}
+
+.status-box {
+    background: rgba(168, 255, 176, 0.1);
+    padding: 15px;
+    font-size: 0.9rem;
+    margin: 20px 0;
+    border: 1px dashed var(--lcd-green);
+    color: var(--lcd-green);
+    line-height: 1.4;
+}
+
+.cta-button {
+    display: block;
+    background: var(--lcd-green);
+    color: var(--lcd-bg);
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    background: #fff;
+    box-shadow: 0 0 20px var(--lcd-green);
+}
+
+.glitch-text {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
